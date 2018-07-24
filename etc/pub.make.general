@@ -1,0 +1,15 @@
+clean:
+	@$(RM) $(RM_FLAGS) *.o
+
+%.o: %.cc
+	@$(TEXT_RED)
+	@echo "Compiling $< ..."
+	@$(TEXT_RESET)
+	@$(CC) $(CC_FLAGS) -c -o $@ $<
+
+%.pc: %.cc
+	@$(TEXT_RED)
+	@echo "Precompiling $< ..."
+	@$(TEXT_RESET)
+	@$(CC) $(CC_FLAGS) -E -o $@ $<
+
