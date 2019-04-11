@@ -10,6 +10,8 @@ CC_FLAGS=$(CC_DEBUG_FLAGS) $(CC_COMPILE_FLAGS) $(CC_MACROS) $(CC_INCL_FLAGS)
 CC_TEST_FLAGS=-g -DDEBUG $(CC_LIB_DEBUG_FLAGS)
 CC_TEST_LIBS=-lgmock_main -lgmock -lpthread
 
+PROTOC=protoc
+
 AR=ar
 AR_FLAGS=-rv
 

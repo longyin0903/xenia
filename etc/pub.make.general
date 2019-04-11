@@ -7,6 +7,17 @@ clean:
 	@$(TEXT_RESET)
 	@$(CC) $(CC_FLAGS) -c -o $@ $<
 
+%.pbo: %.proto
+	@$(TEXT_RED)
+	@echo "Compiling $< ..."
+	@$(TEXT_RESET)
+	@$(PROTOC) $< --cpp_out=./
+	@$(TEXT_RED)
+	@echo "Compiling $(<:$.proto=.pb.cc) ..."
+	@$(TEXT_RESET)
+	@$(CC) $(CC_FLAGS) -c -o $@ $(<:.proto=.pb.cc)
+	@$(RM) $(RM_FLAGS) $(<:.proto=.pb.cc)
+
 %.pc: %.cc
 	@$(TEXT_RED)
 	@echo "Precompiling $< ..."
